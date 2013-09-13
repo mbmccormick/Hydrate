@@ -1,0 +1,102 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Hydrate.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:uc="clr-namespace:Hydrate"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True"
+    shell:SystemTray.BackgroundColor="#FF3092E3"
+    shell:SystemTray.ForegroundColor="#FFFFFFFF"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}">
+
+    <Grid x:Name="LayoutRoot" Background="#FFFFFFFF">
+        <ProgressBar Name="prgLoading" Foreground="#FF3092E3" IsIndeterminate="True" Margin="0,0,0,0" VerticalAlignment="Top" />
+
+        <phone:Pivot Title="HYDRATE" Foreground="#FF3092E3">
+            <phone:PivotItem Header="today" Foreground="#FF3092E3">
+                <Grid Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Viewbox x:Name="vbxBackground" Height="512" Grid.Column="0" Stretch="UniformToFill" Margin="-2,0,24,12">
+                        <Canvas Width="40" Height="100" Canvas.Left="0" Canvas.Top="0" RenderTransformOrigin="0.766,0.25">
+                            <Path Fill="#FF3092E3" Data="M49.901 85.945c0.064 0.078 0.135 0.179 0.197 0.289C50.035 86.126 49.965 86.025 49.901 85.945z" />
+                            <Path Fill="#FF3092E3" Data="M49.951 87.075c0.212-0.248 0.117-0.575-0.033-0.841C50.075 86.505 50.178 86.833 49.951 87.075z" />
+                            <Path Fill="#FF3092E3" Data="M63.5 39.482v5.5c2.471 0.792 3.566 4.107 3.566 4.107v44.566c0 0-4.189 4.846-15.498 5.237  c-0.166 0-0.326 0.006-0.494 0.006h-0.072c-0.166 0-0.326-0.006-0.492-0.006c-11.426-0.394-17.577-5.237-17.577-5.237V49.09  c0 0 1.097-3.322 3.565-4.107v-5.5c0 0-3.282-1.631-3.565-3.606v-9.499c0 0 1.227-1.882 3.69-3.288v-9.502  c0 0 5.977-4.395 8.969-4.572l0.529-4.92c0 0-1.409-0.356-1.053-1.409c0 0 1.242-1.587 4.931-1.587c3.69 0 4.933 1.587 4.933 1.587  c0.348 1.053-1.062 1.409-1.062 1.409l0.528 4.92c2.994 0.178 8.972 4.572 8.972 4.572v9.502c2.461 1.406 3.694 3.288 3.694 3.288  v9.499C66.777 37.859 63.5 39.482 63.5 39.482z" Canvas.Left="-30.132" UseLayoutRounding="False" />
+                        </Canvas>
+                    </Viewbox>
+
+                    <Viewbox x:Name="vbxForeground" Height="512" Grid.Column="0" Stretch="UniformToFill" Margin="-2,0,24,12" VerticalAlignment="Top">
+                        <Canvas Width="40" Height="100" Canvas.Left="0" Canvas.Top="0" RenderTransformOrigin="0.766,0.25">
+                            <Path Fill="#FFCCCCCC" Data="M49.901 85.945c0.064 0.078 0.135 0.179 0.197 0.289C50.035 86.126 49.965 86.025 49.901 85.945z" />
+                            <Path Fill="#FFCCCCCC" Data="M49.951 87.075c0.212-0.248 0.117-0.575-0.033-0.841C50.075 86.505 50.178 86.833 49.951 87.075z" />
+                            <Path Fill="#FFCCCCCC" Data="M63.5 39.482v5.5c2.471 0.792 3.566 4.107 3.566 4.107v44.566c0 0-4.189 4.846-15.498 5.237  c-0.166 0-0.326 0.006-0.494 0.006h-0.072c-0.166 0-0.326-0.006-0.492-0.006c-11.426-0.394-17.577-5.237-17.577-5.237V49.09  c0 0 1.097-3.322 3.565-4.107v-5.5c0 0-3.282-1.631-3.565-3.606v-9.499c0 0 1.227-1.882 3.69-3.288v-9.502  c0 0 5.977-4.395 8.969-4.572l0.529-4.92c0 0-1.409-0.356-1.053-1.409c0 0 1.242-1.587 4.931-1.587c3.69 0 4.933 1.587 4.933 1.587  c0.348 1.053-1.062 1.409-1.062 1.409l0.528 4.92c2.994 0.178 8.972 4.572 8.972 4.572v9.502c2.461 1.406 3.694 3.288 3.694 3.288  v9.499C66.777 37.859 63.5 39.482 63.5 39.482z" Canvas.Left="-30.132" UseLayoutRounding="False" />
+                        </Canvas>
+                    </Viewbox>
+
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="Goal" Style="{StaticResource PhoneTextTitle2Style}" Foreground="#FFCCCCCC" Margin="0,0,0,0" />
+                        <TextBlock x:Name="txtGoal" Text="64 oz." Style="{StaticResource PhoneTextTitle1Style}" Foreground="#FF3092E3" Margin="0,-12,0,24" />
+
+                        <TextBlock Text="Current" Style="{StaticResource PhoneTextTitle2Style}" Foreground="#FFCCCCCC" Margin="0,0,0,0" />
+                        <TextBlock x:Name="txtCurrent" Text="16 oz." Style="{StaticResource PhoneTextTitle1Style}" Foreground="#FF3092E3" Margin="0,-12,0,24" />
+
+                        <TextBlock Text="Reminder" Style="{StaticResource PhoneTextTitle2Style}" Foreground="#FFCCCCCC" Margin="0,0,0,0" />
+                        <TextBlock Text="1 hour" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#FF3092E3" Margin="0,-12,0,24" />
+                    </StackPanel>
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem Header="history" Foreground="#FF3092E3">
+                <Grid Margin="0,0,0,0">
+                </Grid>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" BackgroundColor="#FF3092E3" ForegroundColor="#FFFFFFFF">
+            <shell:ApplicationBar.Buttons>
+                <shell:ApplicationBarIconButton Text="add" IconUri="/Toolkit.Content/ApplicationBar.Add.png" Click="mnuAdd_Click" />
+                <shell:ApplicationBarIconButton Text="subtract" IconUri="/Toolkit.Content/ApplicationBar.Subtract.png" Click="mnuSubtract_Click" />
+            </shell:ApplicationBar.Buttons>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="settings" Click="mnuSettings_Click" />
+                <shell:ApplicationBarMenuItem Text="about" Click="mnuAbout_Click" />
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+</phone:PhoneApplicationPage>
