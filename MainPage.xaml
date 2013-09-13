@@ -19,7 +19,7 @@
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <Grid x:Name="LayoutRoot" Background="#FFFFFFFF">
-        <ProgressBar Name="prgLoading" Foreground="#FF3092E3" IsIndeterminate="True" Margin="0,0,0,0" VerticalAlignment="Top" />
+        <ProgressBar Name="prgLoading" Foreground="#FF3092E3" IsIndeterminate="True" Margin="0,0,0,0" VerticalAlignment="Top" Visibility="Collapsed" />
 
         <phone:Pivot Title="HYDRATE" Foreground="#FF3092E3">
             <phone:PivotItem Header="today" Foreground="#FF3092E3">

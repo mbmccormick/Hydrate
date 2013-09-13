@@ -86,6 +86,11 @@ namespace Hydrate
         {
             current = current + size;
             LoadData();
+
+            if (current >= goal)
+            {
+                MessageBox.Show("You have just met your goal of " + goal + " ounces of water for today!", "Success", MessageBoxButton.OK);
+            }
         }
 
         private void mnuSubtract_Click(object sender, EventArgs e)
