@@ -16,7 +16,7 @@ namespace Hydrate
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        private double goal = 128.0;
+        private double goal = 75.0;
         private double current = 0.0;
 
         private double size = 21.0;
@@ -69,16 +69,19 @@ namespace Hydrate
 
             this.txtGoal.Text = Math.Round(goal, 1) + " oz.";
             this.txtCurrent.Text = Math.Round(current, 1) + " oz.";
+
+            if (current >= goal)
+            {
+                this.txtReminder.Text = "N/A";
+                this.vbxComplete.Visibility = System.Windows.Visibility.Visible;
+            }
+            else
+            {
+                this.txtReminder.Text = "1 hour";
+                this.vbxComplete.Visibility = System.Windows.Visibility.Collapsed;
+            }
         }
         
-        private void mnuAbout_Click(object sender, EventArgs e)
-        {
-            SmartDispatcher.BeginInvoke(() =>
-            {
-                NavigationService.Navigate(new Uri("/YourLastAboutDialog;component/AboutPage.xaml", UriKind.Relative));
-            });
-        }
-
         private void mnuAdd_Click(object sender, EventArgs e)
         {
             current = current + size;
@@ -92,6 +95,22 @@ namespace Hydrate
                 current = 0.0;
 
             LoadData();
+        }
+
+        private void mnuSettings_Click(object sender, EventArgs e)
+        {
+            SmartDispatcher.BeginInvoke(() =>
+            {
+                NavigationService.Navigate(new Uri("/SettingsPage.xaml", UriKind.Relative));
+            });
+        }
+
+        private void mnuAbout_Click(object sender, EventArgs e)
+        {
+            SmartDispatcher.BeginInvoke(() =>
+            {
+                NavigationService.Navigate(new Uri("/YourLastAboutDialog;component/AboutPage.xaml", UriKind.Relative));
+            });
         }
     }
 }

@@ -45,6 +45,14 @@
                         </Canvas>
                     </Viewbox>
 
+                    <Viewbox x:Name="vbxComplete" Width="100" Grid.Column="0" Stretch="Uniform" Margin="54,272,73,144" VerticalAlignment="Center" Visibility="Collapsed">
+                        <Canvas Width="95.453" Height="100" Canvas.Left="0" Canvas.Top="0">
+                            <Canvas>
+                                <Polygon Fill="#FFFFFFFF" Points="94.587,27.48 31.657,86.15 31.217,85.68 18.847,72.41 0.566,52.81 14.106,40.19 32.387,59.79 81.776,13.74" />
+                            </Canvas>
+                        </Canvas>
+                    </Viewbox>
+
                     <StackPanel Grid.Column="1">
                         <TextBlock Text="Goal" Style="{StaticResource PhoneTextTitle2Style}" Foreground="#FFCCCCCC" Margin="0,0,0,0" />
                         <TextBlock x:Name="txtGoal" Text="64 oz." Style="{StaticResource PhoneTextTitle1Style}" Foreground="#FF3092E3" Margin="0,-12,0,24" />
@@ -53,7 +61,7 @@
                         <TextBlock x:Name="txtCurrent" Text="16 oz." Style="{StaticResource PhoneTextTitle1Style}" Foreground="#FF3092E3" Margin="0,-12,0,24" />
 
                         <TextBlock Text="Reminder" Style="{StaticResource PhoneTextTitle2Style}" Foreground="#FFCCCCCC" Margin="0,0,0,0" />
-                        <TextBlock Text="1 hour" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#FF3092E3" Margin="0,-12,0,24" />
+                        <TextBlock x:Name="txtReminder" Text="1 hour" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#FF3092E3" Margin="0,-12,0,24" />
                     </StackPanel>
                 </Grid>
             </phone:PivotItem>

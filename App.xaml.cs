@@ -63,6 +63,21 @@ namespace Hydrate
             // Phone-specific initialization
             InitializePhoneApplication();
 
+            Resources.Remove("PhoneAccentColor");
+            Resources.Add("PhoneAccentColor", Color.FromArgb(255, 48, 146, 227));
+
+            ((SolidColorBrush)Resources["PhoneAccentBrush"]).Color = Color.FromArgb(255, 48, 146, 227);
+
+            Resources.Remove("PhoneForegroundColor");
+            Resources.Add("PhoneForegroundColor", Color.FromArgb(255, 48, 146, 227));
+
+            ((SolidColorBrush)Resources["PhoneForegroundBrush"]).Color = Color.FromArgb(255, 48, 146, 227);
+
+            Resources.Remove("PhoneBackgroundColor");
+            Resources.Add("PhoneBackgroundColor", Color.FromArgb(255, 255, 255, 255));
+
+            ((SolidColorBrush)Resources["PhoneBackgroundBrush"]).Color = Color.FromArgb(255, 255, 255, 255);
+
             if (System.Diagnostics.Debugger.IsAttached)
                 MetroGridHelper.IsVisible = true;
         }
