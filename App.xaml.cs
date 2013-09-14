@@ -16,7 +16,8 @@ namespace Hydrate
 {
     public partial class App : Application
     {
-        public static string FeedbackEmailAddress = "feedback@yourdomain.com";
+        public static string FeedbackEmailAddress = "feedback@mbmccormick.com";
+        public static AppSettings Settings = null;
 
         public static event EventHandler<ApplicationUnhandledExceptionEventArgs> UnhandledExceptionHandled;
 
@@ -78,6 +79,8 @@ namespace Hydrate
 
             ((SolidColorBrush)Resources["PhoneBackgroundBrush"]).Color = Color.FromArgb(255, 255, 255, 255);
 
+            Settings = new AppSettings();
+
             if (System.Diagnostics.Debugger.IsAttached)
                 MetroGridHelper.IsVisible = true;
         }
@@ -95,12 +98,12 @@ namespace Hydrate
 
         private void Application_Deactivated(object sender, DeactivatedEventArgs e)
         {
-            // TODO: save data
+            App.Settings.Save();
         }
 
         private void Application_Closing(object sender, ClosingEventArgs e)
         {
-            // TODO: save data
+            App.Settings.Save();
         }
 
         private void RootFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
@@ -194,6 +197,9 @@ namespace Hydrate
             // screen to remain active until the application is ready to render.
             RootFrame = new TransitionFrame();
             RootFrame.Navigated += CompleteInitializePhoneApplication;
+
+            // Assign the URI-mapper class to the application frame.
+            RootFrame.UriMapper = new AssociationUriMapper();
 
             // Handle navigation failures
             RootFrame.NavigationFailed += RootFrame_NavigationFailed;

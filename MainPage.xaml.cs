@@ -16,29 +16,18 @@ namespace Hydrate
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        private double goal = 75.0;
-        private double current = 0.0;
-
-        private double size = 21.0;
-
         public MainPage()
         {
             InitializeComponent();
 
             App.UnhandledExceptionHandled += new EventHandler<ApplicationUnhandledExceptionEventArgs>(App_UnhandledExceptionHandled);
-
-            this.BuildApplicationBar();
-        }
-
-        private void BuildApplicationBar()
-        {            
         }
 
         private void App_UnhandledExceptionHandled(object sender, ApplicationUnhandledExceptionEventArgs e)
         {
             Dispatcher.BeginInvoke(() =>
             {
-                this.prgLoading.Visibility = System.Windows.Visibility.Visible;
+                this.prgLoading.Visibility = System.Windows.Visibility.Collapsed;
             });
         }
 
@@ -47,15 +36,20 @@ namespace Hydrate
             if (e.IsNavigationInitiator == false)
             {
                 LittleWatson.CheckForPreviousException(true);
+            }
 
-                LoadData();
+            LoadData();
+
+            if (NavigationContext.QueryString.ContainsKey("newRecord") == true)
+            {
+                mnuAdd_Click(this, e);
             }
         }
 
         private void LoadData()
         {
             double height = this.vbxBackground.Height;
-            double percentage = current / goal;
+            double percentage = App.Settings.Current / App.Settings.Goal;
 
             double targetHeight = height - (height * percentage);
 
@@ -67,37 +61,44 @@ namespace Hydrate
 
             this.vbxForeground.Height = targetHeight;
 
-            this.txtGoal.Text = Math.Round(goal, 1) + " oz.";
-            this.txtCurrent.Text = Math.Round(current, 1) + " oz.";
+            this.txtGoal.Text = Math.Round(App.Settings.Goal, 1) + " oz.";
+            this.txtCurrent.Text = Math.Round(App.Settings.Current, 1) + " oz.";
 
-            if (current >= goal)
+            if (App.Settings.Reminder == 1)
+            {
+                this.txtReminder.Text = "1 hour";
+            }
+            else if (App.Settings.Reminder == 2)
+            {
+                this.txtReminder.Text = "2 hours";
+            }
+            else
+            {
+                this.txtReminder.Text = "N/A";
+            }
+
+            if (App.Settings.Current >= App.Settings.Goal)
             {
                 this.txtReminder.Text = "N/A";
                 this.vbxComplete.Visibility = System.Windows.Visibility.Visible;
             }
             else
             {
-                this.txtReminder.Text = "1 hour";
                 this.vbxComplete.Visibility = System.Windows.Visibility.Collapsed;
             }
         }
-        
+
         private void mnuAdd_Click(object sender, EventArgs e)
         {
-            current = current + size;
+            App.Settings.Current += App.Settings.Size;
             LoadData();
-
-            if (current >= goal)
-            {
-                MessageBox.Show("You have just met your goal of " + goal + " ounces of water for today!", "Success", MessageBoxButton.OK);
-            }
         }
 
         private void mnuSubtract_Click(object sender, EventArgs e)
         {
-            current = current - size;
-            if (current < 0.0)
-                current = 0.0;
+            App.Settings.Current -= App.Settings.Size;
+            if (App.Settings.Current < 0.0)
+                App.Settings.Current = 0.0;
 
             LoadData();
         }
