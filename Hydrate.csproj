@@ -100,6 +100,7 @@
     <Compile Include="Common\IsolatedStorageHelper.cs" />
     <Compile Include="Common\LittleWatson.cs" />
     <Compile Include="Common\MetroGridHelper.cs" />
+    <Compile Include="Common\RemindersManager.cs" />
     <Compile Include="Common\SmartDispatcher.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

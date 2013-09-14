@@ -89,6 +89,14 @@ namespace Hydrate
                 this.vbxComplete.Visibility = System.Windows.Visibility.Collapsed;
             }
 
+            RemindersManager.ClearReminders();
+
+            if (App.Settings.Reminder > 0 &&
+                App.Settings.Current < App.Settings.Goal)
+            {
+                RemindersManager.SetupReminders();
+            }
+
             this.prgLoading.Visibility = System.Windows.Visibility.Collapsed;
         }
 
