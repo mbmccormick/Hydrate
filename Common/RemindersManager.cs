@@ -21,16 +21,20 @@ namespace Hydrate.Common
 
         public static void SetupReminders()
         {
-            for (int i = 1; i <= Convert.ToInt32((expirationTime - DateTime.Now.Hour) / App.Settings.Reminder); i++)
+            int currentHour = DateTime.Now.Hour + App.Settings.Reminder;
+
+            while (currentHour < expirationTime)
             {
                 Reminder reminder = new Reminder("newRecordReminder" + i);
 
                 reminder.Title = "Hydration Reminder";
                 reminder.Content = "Don't forget to keep drinking water, your goal for today is " + App.Settings.Goal + " ounces!";
-                reminder.BeginTime = DateTime.Now.AddHours(i * App.Settings.Reminder);
+                reminder.BeginTime = DateTime.Now.AddHours(currentHour);
                 reminder.NavigationUri = new Uri("/MainPage.xaml", UriKind.Relative);
 
                 ScheduledActionService.Add(reminder);
+
+                currentHour += App.Settings.Reminder;
             }
         }
     }
