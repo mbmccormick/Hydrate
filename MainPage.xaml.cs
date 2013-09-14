@@ -25,7 +25,7 @@ namespace Hydrate
 
         private void App_UnhandledExceptionHandled(object sender, ApplicationUnhandledExceptionEventArgs e)
         {
-            Dispatcher.BeginInvoke(() =>
+            SmartDispatcher.BeginInvoke(() =>
             {
                 this.prgLoading.Visibility = System.Windows.Visibility.Collapsed;
             });
@@ -48,6 +48,8 @@ namespace Hydrate
 
         private void LoadData()
         {
+            this.prgLoading.Visibility = System.Windows.Visibility.Visible;
+
             double height = this.vbxBackground.Height;
             double percentage = App.Settings.Current / App.Settings.Goal;
 
@@ -86,16 +88,22 @@ namespace Hydrate
             {
                 this.vbxComplete.Visibility = System.Windows.Visibility.Collapsed;
             }
+
+            this.prgLoading.Visibility = System.Windows.Visibility.Collapsed;
         }
 
         private void mnuAdd_Click(object sender, EventArgs e)
         {
+            if (this.prgLoading.Visibility == System.Windows.Visibility.Visible) return;
+
             App.Settings.Current += App.Settings.Size;
             LoadData();
         }
 
         private void mnuSubtract_Click(object sender, EventArgs e)
         {
+            if (this.prgLoading.Visibility == System.Windows.Visibility.Visible) return;
+
             App.Settings.Current -= App.Settings.Size;
             if (App.Settings.Current < 0.0)
                 App.Settings.Current = 0.0;
@@ -105,6 +113,8 @@ namespace Hydrate
 
         private void mnuSettings_Click(object sender, EventArgs e)
         {
+            if (this.prgLoading.Visibility == System.Windows.Visibility.Visible) return;
+
             SmartDispatcher.BeginInvoke(() =>
             {
                 NavigationService.Navigate(new Uri("/SettingsPage.xaml", UriKind.Relative));
@@ -113,6 +123,8 @@ namespace Hydrate
 
         private void mnuAbout_Click(object sender, EventArgs e)
         {
+            if (this.prgLoading.Visibility == System.Windows.Visibility.Visible) return;
+
             SmartDispatcher.BeginInvoke(() =>
             {
                 NavigationService.Navigate(new Uri("/YourLastAboutDialog;component/AboutPage.xaml", UriKind.Relative));

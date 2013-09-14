@@ -32,7 +32,7 @@ namespace Hydrate
 
         private void App_UnhandledExceptionHandled(object sender, ApplicationUnhandledExceptionEventArgs e)
         {
-            Dispatcher.BeginInvoke(() =>
+            SmartDispatcher.BeginInvoke(() =>
             {
                 this.prgLoading.Visibility = System.Windows.Visibility.Collapsed;
             });
@@ -61,6 +61,8 @@ namespace Hydrate
 
         private void writeNFC_Click(object sender, RoutedEventArgs e)
         {
+            if (this.prgLoading.Visibility == System.Windows.Visibility.Visible) return;
+
             MessageBox.Show("Tap your NFC tag to begin setting it up for use with Hydrate.", "Write NFC tag", MessageBoxButton.OK);
 
             this.prgLoading.Visibility = System.Windows.Visibility.Visible;
