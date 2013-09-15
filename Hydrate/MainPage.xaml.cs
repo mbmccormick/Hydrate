@@ -63,8 +63,8 @@ namespace Hydrate
 
             this.vbxForeground.Height = targetHeight;
 
-            this.txtGoal.Text = Math.Round(App.Settings.Goal, 1) + " oz.";
-            this.txtCurrent.Text = Math.Round(App.Settings.Current, 1) + " oz.";
+            this.txtGoal.Text = Math.Round(App.Settings.Goal) + " oz.";
+            this.txtCurrent.Text = Math.Round(App.Settings.Current) + " oz.";
 
             if (App.Settings.Reminder == 1)
             {
@@ -89,12 +89,13 @@ namespace Hydrate
                 this.vbxComplete.Visibility = System.Windows.Visibility.Collapsed;
             }
 
-            RemindersManager.ClearReminders();
-
-            if (App.Settings.Reminder > 0 &&
-                App.Settings.Current < App.Settings.Goal)
+            if (App.Settings.Reminder > 0)
             {
-                RemindersManager.SetupReminders();
+                NotificationsManager.SetupReminders();
+            }
+            else
+            {
+                NotificationsManager.DisableReminders();
             }
 
             this.prgLoading.Visibility = System.Windows.Visibility.Collapsed;

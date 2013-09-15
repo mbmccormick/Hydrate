@@ -24,6 +24,8 @@ namespace Hydrate.Common
 
         const string HistorySettingKeyName = "History";
 
+        const string LastReminderSettingKeyName = "LastReminder";
+
         public AppSettings()
         {
             try
@@ -144,6 +146,19 @@ namespace Hydrate.Common
             set
             {
                 AddOrUpdateValue(HistorySettingKeyName, value);
+                Save();
+            }
+        }
+
+        public DateTime LastReminder
+        {
+            get
+            {
+                return GetValueOrDefault<DateTime>(LastReminderSettingKeyName, DateTime.Now);
+            }
+            set
+            {
+                AddOrUpdateValue(LastReminderSettingKeyName, value);
                 Save();
             }
         }

@@ -29,7 +29,7 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <Viewbox x:Name="vbxBackground" Height="512" Grid.Column="0" Stretch="UniformToFill" Margin="-2,0,24,12">
+                    <Viewbox x:Name="vbxBackground" Height="480" Grid.Column="0" Stretch="UniformToFill" Margin="-2,6,24,12" VerticalAlignment="Top">
                         <Canvas Width="40" Height="100" Canvas.Left="0" Canvas.Top="0" RenderTransformOrigin="0.766,0.25">
                             <Path Fill="#FF3092E3" Data="M49.901 85.945c0.064 0.078 0.135 0.179 0.197 0.289C50.035 86.126 49.965 86.025 49.901 85.945z" />
                             <Path Fill="#FF3092E3" Data="M49.951 87.075c0.212-0.248 0.117-0.575-0.033-0.841C50.075 86.505 50.178 86.833 49.951 87.075z" />
@@ -37,7 +37,7 @@
                         </Canvas>
                     </Viewbox>
 
-                    <Viewbox x:Name="vbxForeground" Height="384" Grid.Column="0" Stretch="UniformToFill" Margin="-2,0,24,12" VerticalAlignment="Top">
+                    <Viewbox x:Name="vbxForeground" Height="360" Grid.Column="0" Stretch="UniformToFill" Margin="-2,6,24,12" VerticalAlignment="Top">
                         <Canvas Width="40" Height="100" Canvas.Left="0" Canvas.Top="0" RenderTransformOrigin="0.766,0.25">
                             <Path Fill="#FFCCCCCC" Data="M49.901 85.945c0.064 0.078 0.135 0.179 0.197 0.289C50.035 86.126 49.965 86.025 49.901 85.945z" />
                             <Path Fill="#FFCCCCCC" Data="M49.951 87.075c0.212-0.248 0.117-0.575-0.033-0.841C50.075 86.505 50.178 86.833 49.951 87.075z" />
@@ -45,7 +45,7 @@
                         </Canvas>
                     </Viewbox>
 
-                    <Viewbox x:Name="vbxComplete" Width="100" Grid.Column="0" Stretch="Uniform" Margin="54,272,73,144" VerticalAlignment="Center" Visibility="Collapsed">
+                    <Viewbox x:Name="vbxComplete" Width="85" Grid.Column="0" Stretch="Uniform" Margin="54,250,73,144" VerticalAlignment="Center" Visibility="Collapsed">
                         <Canvas Width="95.453" Height="100" Canvas.Left="0" Canvas.Top="0">
                             <Canvas>
                                 <Polygon Fill="#FFFFFFFF" Points="94.587,27.48 31.657,86.15 31.217,85.68 18.847,72.41 0.566,52.81 14.106,40.19 32.387,59.79 81.776,13.74" />
