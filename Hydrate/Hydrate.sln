@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30324.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hydrate", "Hydrate.csproj", "{B7FF17B5-D42F-49BB-B674-2E3C0BE74C07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hydrate.API", "..\Hydrate.API\Hydrate.API.csproj", "{8AB244DF-0B0D-4E2D-878D-55B42A051B06}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7FF17B5-D42F-49BB-B674-2E3C0BE74C07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7FF17B5-D42F-49BB-B674-2E3C0BE74C07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7FF17B5-D42F-49BB-B674-2E3C0BE74C07}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B7FF17B5-D42F-49BB-B674-2E3C0BE74C07}.Debug|ARM.ActiveCfg = Debug|ARM
+		{B7FF17B5-D42F-49BB-B674-2E3C0BE74C07}.Debug|ARM.Build.0 = Debug|ARM
+		{B7FF17B5-D42F-49BB-B674-2E3C0BE74C07}.Debug|ARM.Deploy.0 = Debug|ARM
+		{B7FF17B5-D42F-49BB-B674-2E3C0BE74C07}.Debug|x86.ActiveCfg = Debug|x86
+		{B7FF17B5-D42F-49BB-B674-2E3C0BE74C07}.Debug|x86.Build.0 = Debug|x86
+		{B7FF17B5-D42F-49BB-B674-2E3C0BE74C07}.Debug|x86.Deploy.0 = Debug|x86
+		{B7FF17B5-D42F-49BB-B674-2E3C0BE74C07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7FF17B5-D42F-49BB-B674-2E3C0BE74C07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7FF17B5-D42F-49BB-B674-2E3C0BE74C07}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B7FF17B5-D42F-49BB-B674-2E3C0BE74C07}.Release|ARM.ActiveCfg = Release|ARM
+		{B7FF17B5-D42F-49BB-B674-2E3C0BE74C07}.Release|ARM.Build.0 = Release|ARM
+		{B7FF17B5-D42F-49BB-B674-2E3C0BE74C07}.Release|ARM.Deploy.0 = Release|ARM
+		{B7FF17B5-D42F-49BB-B674-2E3C0BE74C07}.Release|x86.ActiveCfg = Release|x86
+		{B7FF17B5-D42F-49BB-B674-2E3C0BE74C07}.Release|x86.Build.0 = Release|x86
+		{B7FF17B5-D42F-49BB-B674-2E3C0BE74C07}.Release|x86.Deploy.0 = Release|x86
+		{8AB244DF-0B0D-4E2D-878D-55B42A051B06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AB244DF-0B0D-4E2D-878D-55B42A051B06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AB244DF-0B0D-4E2D-878D-55B42A051B06}.Debug|ARM.ActiveCfg = Debug|ARM
+		{8AB244DF-0B0D-4E2D-878D-55B42A051B06}.Debug|ARM.Build.0 = Debug|ARM
+		{8AB244DF-0B0D-4E2D-878D-55B42A051B06}.Debug|x86.ActiveCfg = Debug|x86
+		{8AB244DF-0B0D-4E2D-878D-55B42A051B06}.Debug|x86.Build.0 = Debug|x86
+		{8AB244DF-0B0D-4E2D-878D-55B42A051B06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AB244DF-0B0D-4E2D-878D-55B42A051B06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AB244DF-0B0D-4E2D-878D-55B42A051B06}.Release|ARM.ActiveCfg = Release|ARM
+		{8AB244DF-0B0D-4E2D-878D-55B42A051B06}.Release|ARM.Build.0 = Release|ARM
+		{8AB244DF-0B0D-4E2D-878D-55B42A051B06}.Release|x86.ActiveCfg = Release|x86
+		{8AB244DF-0B0D-4E2D-878D-55B42A051B06}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
